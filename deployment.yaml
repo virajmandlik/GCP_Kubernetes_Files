@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: hello-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-gateway
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hello-gateway
+    spec:
+      containers:
+      - name: sample-hello
+        image: us-central1-docker.pkg.dev/elevated-web-395908/viraj-microservice01/sample:1
+        ports:
+        - containerPort: 80
